@@ -1,0 +1,20 @@
+<%- include('partials/header', { pageTitle: 'Diagnostico de rede', active: 'ping' }) %>
+
+<div class="page-head">
+  <h1>Diagnostico de rede</h1>
+  <p>Testa a conectividade com um host antes de abrir um chamado de rede.</p>
+</div>
+
+<div class="card">
+  <form action="/ping" method="GET">
+    <label for="host">Host ou IP</label>
+    <input type="text" id="host" name="host" placeholder="ex: 127.0.0.1" value="<%= host || '' %>">
+    <button type="submit">Testar conexao</button>
+  </form>
+
+  <% if (output) { %>
+    <div class="result-box"><%= output %></div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

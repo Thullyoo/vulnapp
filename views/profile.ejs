@@ -1,0 +1,21 @@
+<%- include('partials/header', { pageTitle: 'Perfil', active: 'profile', user: sessionUser }) %>
+
+<div class="page-head">
+  <h1>Perfil do agente</h1>
+  <p>Dados cadastrais associados a este ID de usuario.</p>
+</div>
+
+<div class="card">
+  <table>
+    <tbody>
+      <tr><th>ID</th><td><%= profile.id %></td></tr>
+      <tr><th>Usuario</th><td><%= profile.username %></td></tr>
+      <tr><th>Email</th><td><%= profile.email %></td></tr>
+      <tr><th>Cargo</th><td><%= profile.role %></td></tr>
+      <tr><th>Documento</th><td><%= profile.ssn %></td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="hint">Tente trocar o numero na URL (<code>/profile/1</code>, <code>/profile/2</code>...) e veja o que acontece.</p>
+
+<%- include('partials/footer') %>

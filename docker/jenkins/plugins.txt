@@ -1,0 +1,6 @@
+docker-workflow
+sonar
+htmlpublisher
+workflow-aggregator
+git
+credentials-binding

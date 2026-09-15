@@ -1,0 +1,31 @@
+<%- include('partials/header', { pageTitle: 'Atividade', active: 'comments' }) %>
+
+<div class="page-head">
+  <h1>Atividade recente</h1>
+  <p>Comentarios e respostas registrados nos tickets.</p>
+</div>
+
+<div class="card">
+  <form action="/comments" method="POST">
+    <label for="author">Seu nome</label>
+    <input type="text" id="author" name="author" placeholder="ex: alice">
+    <label for="body">Comentario</label>
+    <textarea id="body" name="body" placeholder="Escreva uma atualizacao..."></textarea>
+    <button type="submit">Publicar</button>
+  </form>
+</div>
+
+<div class="thread">
+  <% comments.forEach(function(c) { %>
+    <div class="reply">
+      <!-- VULNERABILIDADE: XSS armazenado - saida sem escape -->
+      <div class="who"><%- c.author %></div>
+      <div><%- c.body %></div>
+    </div>
+  <% }); %>
+  <% if (comments.length === 0) { %>
+    <p class="hint">Nenhuma atividade ainda.</p>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

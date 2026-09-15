@@ -1,0 +1,32 @@
+<%- include('partials/header', { pageTitle: 'Painel', active: 'home', user: user }) %>
+
+<div class="page-head">
+  <h1>Painel</h1>
+  <p>Visao geral do helpdesk interno.</p>
+</div>
+
+<div class="stat-row">
+  <div class="stat"><div class="n">12</div><div class="l">tickets abertos</div></div>
+  <div class="stat"><div class="n">3</div><div class="l">aguardando voce</div></div>
+  <div class="stat"><div class="n">248</div><div class="l">resolvidos no mes</div></div>
+</div>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr><th>Ticket</th><th>Solicitante</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>#1042 &middot; VPN nao conecta</td><td>alice</td><td><span class="tag open">aberto</span></td></tr>
+      <tr><td>#1041 &middot; Acesso ao servidor de arquivos</td><td>bob</td><td><span class="tag open">aberto</span></td></tr>
+      <tr><td>#1039 &middot; Impressora do 3o andar</td><td>carla</td><td><span class="tag">resolvido</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <strong>Atalhos</strong>
+  <p class="hint">Use a barra lateral para buscar tickets, ver a atividade recente, rodar um diagnostico de rede ou consultar um anexo.</p>
+</div>
+
+<%- include('partials/footer') %>

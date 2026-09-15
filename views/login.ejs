@@ -1,0 +1,22 @@
+<%- include('partials/header', { pageTitle: 'Entrar', active: 'login' }) %>
+
+<div class="page-head">
+  <h1>Entrar</h1>
+  <p>Acesse com sua conta do helpdesk.</p>
+</div>
+
+<div class="card">
+  <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+  <% } %>
+  <form action="/login" method="POST">
+    <label for="username">Usuario</label>
+    <input type="text" id="username" name="username" placeholder="ex: alice">
+    <label for="password">Senha</label>
+    <input type="password" id="password" name="password" placeholder="********">
+    <button type="submit">Entrar</button>
+  </form>
+  <p class="hint">Contas de teste: <code>admin/admin123</code>, <code>alice/senha123</code>, <code>bob/qwerty</code></p>
+</div>
+
+<%- include('partials/footer') %>

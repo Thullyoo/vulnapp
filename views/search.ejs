@@ -1,0 +1,22 @@
+<%- include('partials/header', { pageTitle: 'Buscar tickets', active: 'search' }) %>
+
+<div class="page-head">
+  <h1>Buscar tickets</h1>
+  <p>Pesquise por titulo, solicitante ou palavra-chave.</p>
+</div>
+
+<div class="card">
+  <form action="/search" method="GET">
+    <label for="q">Termo de busca</label>
+    <input type="text" id="q" name="q" placeholder="ex: VPN, impressora, acesso...">
+    <button type="submit">Buscar</button>
+  </form>
+</div>
+
+<% if (query) { %>
+  <div class="card">
+    <p>Nenhum ticket encontrado para: <strong><%- query %></strong></p>
+  </div>
+<% } %>
+
+<%- include('partials/footer') %>

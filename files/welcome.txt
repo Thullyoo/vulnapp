@@ -1,0 +1,3 @@
+Bem-vindo ao VulnApp!
+Este e um arquivo publico de exemplo, usado para demonstrar Path Traversal.
+Tente: /download?file=../app.js ou /download?file=../.env

@@ -1,0 +1,23 @@
+<%- include('partials/header', { pageTitle: 'Estimativa de custo', active: 'calc' }) %>
+
+<div class="page-head">
+  <h1>Estimativa de custo</h1>
+  <p>Calculadora rapida para orcar horas de suporte e pecas.</p>
+</div>
+
+<div class="card">
+  <form action="/calc" method="GET">
+    <label for="expr">Expressao (ex: horas * valor_hora)</label>
+    <input type="text" id="expr" name="expr" placeholder="ex: 3*45" value="<%= expr || '' %>">
+    <button type="submit">Calcular</button>
+  </form>
+
+  <% if (typeof result !== 'undefined' && result !== null) { %>
+    <div class="result-box">Resultado: <%= result %></div>
+  <% } %>
+  <% if (typeof error !== 'undefined' && error) { %>
+    <div class="alert alert-error"><%= error %></div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
