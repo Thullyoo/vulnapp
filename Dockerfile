@@ -2,15 +2,11 @@
 # Dockerfile PROPOSITALMENTE mal configurado para fins academicos (TCC).
 # =============================================================================
 
-FROM node:14
+FROM node:20-alpine
 
 LABEL maintainer="tcc-devsecops@example.com"
 
-RUN apt-get update && apt-get install -y \
-    curl \
-    telnet \
-    netcat \
-    openssh-server
+RUN apk add --no-cache curl busybox-extras netcat-openbsd openssh
 
 ENV JWT_SECRET=supersecret123
 ENV DB_PASSWORD=P@ssw0rd_admin_2019
@@ -19,7 +15,7 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 
-ADD http://example.com/setup.sh /app/setup.sh
+ADD http://example.com/ /app/setup.sh
 
 COPY . .
 
